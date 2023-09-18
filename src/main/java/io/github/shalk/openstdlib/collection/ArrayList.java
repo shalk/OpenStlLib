@@ -67,7 +67,7 @@ public class ArrayList<T> implements List<T> {
       }
     }
     if (j == -1) return;
-    remove(j, t);
+    remove(j);
   }
 
   private void copy(int a, int b, int len) {
@@ -83,7 +83,7 @@ public class ArrayList<T> implements List<T> {
   }
 
   @Override
-  public void remove(int j, T t) {
+  public void remove(int j) {
     checkOutOfBound(j);
     int len = size - j - 1;
     copy(j + 1, j, len);
@@ -98,5 +98,23 @@ public class ArrayList<T> implements List<T> {
   @Override
   public boolean isEmpty() {
     return size <= 0;
+  }
+
+  public static void main(String[] args) {
+    ArrayList<Integer> arr = new ArrayList<>();
+    for (int i = 0; i < 20; i++) {
+      arr.add(i);
+    }
+    System.out.println("arr.size() = " + arr.size());
+    for (int i = 0 ; i< arr.size(); i++) {
+      System.out.printf("arr[%d]=%d\n",i, arr.get(i));
+    }
+    for (int i = 1; i < 19; i++) {
+      arr.remove(1);
+    }
+    System.out.println("arr.size() = " + arr.size());
+    for (int i = 0 ; i< arr.size(); i++) {
+      System.out.printf("arr[%d]=%d\n",i, arr.get(i));
+    }
   }
 }

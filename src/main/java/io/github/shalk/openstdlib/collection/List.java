@@ -8,7 +8,7 @@ public interface List<T> {
 
   void set(int i, T t);
 
-  void remove(int i, T t);
+  void remove(int i);
 
   void remove(T t);
 
